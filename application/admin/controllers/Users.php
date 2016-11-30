@@ -72,7 +72,7 @@ class Users extends MY_Controller {
 	}
 	
 	function add(){
-		check_permission('admin-add-user');
+        check_permission('admin-add-user');
 		$userRoles = array();
 		$this->template_data['userRoles'] = $userRoles;
 		
@@ -96,12 +96,12 @@ class Users extends MY_Controller {
 
 	
 	function save(){
-		$id = intval($this->input->post('id'));
+        $id = intval($this->input->post('id'));
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
 		if($this->form_validation->run() === FALSE){
-			json_response(array('success' => FALSE, 'msg' => validation_errors()));
+            json_response(array('success' => FALSE, 'msg' => validation_errors()));
 		}else{
-			if($id === 0){
+			if($id == 0){
 				check_permission('admin-add-user');
 				$this->db->trans_begin();
 				$data = array(
