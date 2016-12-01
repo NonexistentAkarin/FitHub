@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>CXPCMS | Login</title>
+  <title>CXPCMS | Register</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="<?php echo base_url();?>resource/adminlte/bootstrap/css/bootstrap.min.css">
@@ -21,43 +21,43 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="register-logo">
     <a href="<?php echo site_url('');?>">CXPCMS</a>
   </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <p class="login-box-msg">Sign in</p>
+  <!-- /.signup-logo -->
+  <div class="register-box-body">
+    <p class="login-box-msg">Sign up</p>
 	
-	<?php echo form_open('c=login', 'id="loginform"');?>
+	<?php echo form_open('c=register', 'id="registerform"');?>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" required name="username" id="username" placeholder="Username or Email">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <input type="text" class="form-control" required name="username" id="username" placeholder="Username">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
 		<span id="usernameerror"></span>
+      </div>
+      <div class="form-group has-feedback">
+          <input type="email" class="form-control" required name="email" id="email" placeholder="Email">
+          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          <span id="emailerror"></span>
       </div>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" required name="password" id="password" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 		<span id="passworderror"></span>
       </div>
-	  <div class="form-group">
-		<div class="row">
-			<div class="col-lg-7">
-				<input type="text" class="form-control" required name="captcha_code" id="captcha_code" placeholder="Captcha"><span id="captcha_codeerror"></span>
-			</div>
-			<div class="col-lg-5">
-				<img src="<?php echo base_url();?>api/captcha" id="captcha_img" onclick="this.src='<?php echo base_url();?>api/captcha?_t=' + Math.random();" style="width:100%;height:35px;">
-			</div>	
-		</div>
-	  </div>	  
+      <div class="form-group has-feedback">
+          <input type="password" class="form-control" required name="re_password" id="re_password" placeholder="Retype password">
+          <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+          <span id="re_passworderror"></span>
+      </div>
       <div class="row">
         <div class="col-xs-8">
-          
+
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign in</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign up</button>
         </div>
         <!-- /.col -->
       </div>
@@ -65,18 +65,14 @@
 
     <div class="social-auth-links text-center">
       <p>- or -</p>
-	  <!--<a href="<?php echo site_url('c=oauth&m=login&from=coop');?>" class="btn btn-block btn-social btn-twitter btn-flat"><i class="fa fa-qq"></i> 使用COOP登录</a>-->
-	  <!--<a href="<?php echo site_url('c=oauth&m=login&from=qq');?>" class="btn btn-block btn-social btn-twitter btn-flat"><i class="fa fa-qq"></i> 使用QQ登录</a>-->
-      <!--<a href="<?php echo site_url('c=oauth&m=login&from=facebook');?>" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> 使用Facebook登录</a>
-      <a href="<?php echo site_url('c=oauth&m=login&from=google');?>" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> 使用Google+登录</a>-->
+<!--      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using-->
+<!--        Facebook</a>-->
+<!--      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using-->
+<!--        Google+</a>-->
     </div>
     <!-- /.social-auth-links -->
 
-    <a href="<?php echo site_url('c=register');?>">New To FitHub?</a>
-
-    <br>
-
-    <a href="<?php echo site_url('c=register&m=findpassword');?>">Forget Password?</a>
+    <a href="<?php echo site_url('c=login');?>">Already Have an Account?</a>
 
   </div>
   <!-- /.login-box-body -->
@@ -105,41 +101,48 @@
 			$(element).closest('.form-group').removeClass('has-error');
 		}
 	});
-	$('#loginform').validate({
+	$('#registerform').validate({
 		rules:{
 			username:{
 				required:true
 			},
-			password:{
+			email:{
 				required:true
 			},
-			captcha_code:{
-				required:true
-			}			
+            password:{
+                required:true
+            },
+            re_password:{
+                required:true,
+                equalTo:"#password"
+            }
 		},
 		messages:{
 			username:{
-				required:'Please Enter Username or Email'
-			},
-			password:{
-				required:'Please Enter Password'
-			},
-			captcha_code:{
-				required:'Please Enter Captcha Code'
-			}
+                required:'Please Enter Username'
+            },
+            email:{
+                required:'Please Enter Email'
+            },
+            password:{
+                required:'Please Enter Password'
+            },
+            re_password:{
+                required:'Please Enter Password Again',
+                equalTo:'The Two Passwords You Typed Do Not Match'
+            }
 		}
 
 	});
-	$('#loginform').ajaxForm({
+	$('#registerform').ajaxForm({
 		beforeSubmit:function(formData, jqForm, options){
-			return $('#loginform').valid();
+			return $('#registerform').valid();
 		},
 		success:function(responseText, statusText, xhr, form){
 			var json = $.parseJSON(responseText);
 			if(json.success){
 				window.location.href = '<?php echo base_url() . $this->config->item('index_page');?>';
 			}else{
-				$('#captcha_img').attr('src', '<?php echo base_url();?>api/captcha?_t=' + Math.random());
 				bootbox.alert(json.msg);
 			}
 			return false;
