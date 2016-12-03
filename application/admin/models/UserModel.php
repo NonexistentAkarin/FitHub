@@ -13,43 +13,50 @@ class UserModel extends CI_Model
         $this->load->database();
     }
 
-    public function findUserById($id){
-        $this->db->select('rowid, *');
-        $query = $this->db->get_where('user',array('rowId'=>$id));
+    public function findUserById($id)
+    {
+        $this->db->select('*');
+        $query = $this->db->get_where('users', array('id' => $id));
         return $query->row_array();
     }
 
-    public function findUsersByIdArray($userIdArray){
+    public function findUsersByIdArray($userIdArray)
+    {
         $this->db->select('id, userName');
         $this->db->where_in('id', $userIdArray);
         $query = $this->db->get('users');
         return $query->result_array();
     }
 
-    public function findUserByAccount($account){
+    public function findUserByAccount($account)
+    {
         $this->db->select('rowid, *');
-        $query = $this->db->get_where('users',array('account'=>$account));
+        $query = $this->db->get_where('users', array('account' => $account));
         return $query->row_array();
     }
 
-    public function findUserByUserName($userName){
+    public function findUserByUserName($userName)
+    {
         $this->db->select('rowid, *');
-        $query = $this->db->get_where('user',array('userName'=>$userName));
+        $query = $this->db->get_where('user', array('userName' => $userName));
         return $query->row_array();
     }
 
-    public function findALL(){
+    public function findALL()
+    {
         $this->db->select('rowid, *');
         $query = $this->db->get('user');
         return $query->result_array();
     }
 
-    public function insertUser($userAttrArray){
+    public function insertUser($userAttrArray)
+    {
         $result = $this->db->insert('user', $userAttrArray);
         return $result;
     }
 
-    public function updateUser($user){
+    public function updateUser($user)
+    {
         $this->db->where('rowid', $user['rowid']);
         return $this->db->update('user', $user);
     }

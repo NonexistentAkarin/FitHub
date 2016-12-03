@@ -15,7 +15,8 @@ class profileFormHelper extends MY_Controller
         $this->load->model('userModel');
     }
 
-    public function updateCurrentProfileInfo(){
+    public function updateCurrentProfileInfo()
+    {
         $email = $this->input->post('email');
         $educationExperience = $this->input->post('educationExperience');
         $skills = $this->input->post('skills');
@@ -31,27 +32,28 @@ class profileFormHelper extends MY_Controller
         );
 
         $result = $this->profileModel->updateProfileInfoById($profile);
-        if($result){
+        if ($result) {
             echo '修改成功';
-        }else{
+        } else {
             echo '修改失败';
         }
     }
 
-    public function modifyPassword(){
+    public function modifyPassword()
+    {
         $oldPsd = $this->input->post('oldPsd');
         $newPsd = $this->input->post('newPsd');
         $userId = $this->user->id;
 
         $user = $this->userModel->findUserById($userId);
 
-        if($user['password']==$oldPsd){
-            $user['password']=$newPsd;
+        if ($user['password'] == $oldPsd) {
+            $user['password'] = $newPsd;
         }
         $result = $this->userModel->updateUser($user);
-        if($result){
+        if ($result) {
             echo '修改成功';
-        }else{
+        } else {
             echo '修改失败';
         }
     }

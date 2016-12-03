@@ -14,11 +14,13 @@ class SocialMediaFormHelper extends MY_Controller
         $this->load->model('dynamicModel');
     }
 
-    public function index(){
+    public function index()
+    {
         echo 'haha';
     }
 
-    public function releaseDynamic(){
+    public function releaseDynamic()
+    {
         $userId = $this->user->id;
         $content = $this->input->post('dynamic-content');
         $dynamic = array(
@@ -28,9 +30,9 @@ class SocialMediaFormHelper extends MY_Controller
             'updatedAt' => time(),
         );
         $result = $this->dynamicModel->insertDynamic($dynamic);
-        if($result){
-            redirect(base_url().'admin.php#/Socialization/');
-        }else{
+        if ($result) {
+            redirect(base_url() . 'admin.php#/Socialization/');
+        } else {
             echo "发布动态失败";
         }
     }

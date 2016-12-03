@@ -14,7 +14,8 @@ class profileAjaxHelper extends MY_Controller
         $this->load->model('profileModel');
     }
 
-    public function getCurrentProfileInfo(){
+    public function getCurrentProfileInfo()
+    {
         $userId = $this->user->id;
         $userName = $this->user->username;
         $profileInfo = $this->profileModel->findProfileInfoById($userId);
@@ -23,7 +24,8 @@ class profileAjaxHelper extends MY_Controller
         echo json_encode($profileInfo);
     }
 
-    public function getUserProfileInfo(){
+    public function getUserProfileInfo()
+    {
         $userId = $this->input->post('userId');
         $profileInfo = $this->profileModel->findProfileInfoById($userId);
         echo json_encode($profileInfo);

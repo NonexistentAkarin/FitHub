@@ -42,7 +42,8 @@
             <div class="container">
                 <div class="navbar-header">
                     <a href="personPage.html" class="navbar-brand"><b>卓尔运动</b></a>
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar-collapse">
                         <i class="fa fa-bars"></i>
                     </button>
                 </div>
@@ -50,7 +51,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php?/Pages/View/personPage">首页<span class="sr-only">(current)</span></a></li>
+                        <li class="active"><a href="index.php?/Pages/View/personPage">首页<span
+                                class="sr-only">(current)</span></a></li>
                         <li><a href="index.php?/Pages/sports/sportsPage">运动管理</a></li>
                         <li><a href="index.php?/Pages/activity/activityPage">活动专区</a></li>
                         <li><a href="index.php?/Pages/socialMedia/socialMediaPage">运动圈子</a></li>
@@ -93,7 +95,8 @@
                                             <a href="#">
                                                 <div class="pull-left">
                                                     <!-- User Image -->
-                                                    <img src="images/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                    <img src="images/user2-160x160.jpg" class="img-circle"
+                                                         alt="User Image">
                                                 </div>
                                                 <!-- Message title and timestamp -->
                                                 <h4>
@@ -158,7 +161,9 @@
                                                 <!-- The progress bar -->
                                                 <div class="progress xs">
                                                     <!-- Change the css width attribute to simulate progress -->
-                                                    <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                    <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                         role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                         aria-valuemax="100">
                                                         <span class="sr-only">已完成 20%</span>
                                                     </div>
                                                 </div>
@@ -249,11 +254,13 @@
                 </div>
                 <div class="col-md-6">
                     <div class="row clearfix">
-                        <form role="form" action="index.php?/formHelpers/SocialMediaFormHelper/releaseDynamic" method="post">
+                        <form role="form" action="index.php?/formHelpers/SocialMediaFormHelper/releaseDynamic"
+                              method="post">
                             <!-- textarea -->
                             <div class="form-group">
                                 <label>你想说些什么</label>
-                                <textarea class="form-control" rows="3" placeholder="写下你想说的话 ..." name="dynamic-content"></textarea>
+                                <textarea class="form-control" rows="3" placeholder="写下你想说的话 ..."
+                                          name="dynamic-content"></textarea>
                             </div>
                             <div class="form-group mar">
                                 <div class="col-sm-offset-10 col-sm-2">
@@ -290,7 +297,8 @@
                     <!-- Profile Image -->
                     <div class="box box-primary">
                         <div class="box-body box-profile">
-                            <img class="profile-user-img img-responsive img-circle" src="../../images/user1-128x128.jpg" alt="User profile picture">
+                            <img class="profile-user-img img-responsive img-circle" src="../../images/user1-128x128.jpg"
+                                 alt="User profile picture">
 
                             <h3 class="profile-username text-center" id="userName">卓尔运动用户</h3>
 
@@ -298,10 +306,12 @@
 
                             <ul class="list-group list-group-unbordered">
                                 <li class="list-group-item">
-                                    <b>谁关注了我</b> <a class="pull-right" id="followerCnt" href="index.php?/Pages/socialMedia/myFollower">0</a>
+                                    <b>谁关注了我</b> <a class="pull-right" id="followerCnt"
+                                                    href="index.php?/Pages/socialMedia/myFollower">0</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>我关注了谁</b> <a class="pull-right" id="followingCnt" href="index.php?/Pages/socialMedia/myFollowing">0</a>
+                                    <b>我关注了谁</b> <a class="pull-right" id="followingCnt"
+                                                    href="index.php?/Pages/socialMedia/myFollowing">0</a>
                                 </li>
                                 <li class="list-group-item">
                                     <b>朋友</b> <a class="pull-right" id="friendsCnt">0</a>
@@ -382,7 +392,8 @@
         <div class="box-header with-border">
             <div class="user-block">
                 <img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Image">
-                <a href="#" class="userInfoPageLink"><span class="username dynamicUserName">Jonathan Burke Jr.</span></a>
+                <a href="#" class="userInfoPageLink"><span
+                        class="username dynamicUserName">Jonathan Burke Jr.</span></a>
                 <span class="description releasedTime">Shared publicly - 7:30 PM Today</span>
             </div>
             <!-- /.user-block -->
@@ -400,7 +411,9 @@
 
             <p class="dynamicContent">I took this photo this morning. What do you guys think?</p>
             <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> 分享</button>
-            <button type="button" class="btn btn-default btn-xs btn-like"  onclick="toggleLike(this);"><i class="fa fa-thumbs-o-up"></i> 赞</button>
+            <button type="button" class="btn btn-default btn-xs btn-like" onclick="toggleLike(this);"><i
+                    class="fa fa-thumbs-o-up"></i> 赞
+            </button>
             <!--<span class="pull-right text-muted likesCnt">127 likes - 3 comments</span>-->
         </div>
         <!-- /.box-body -->
@@ -415,14 +428,15 @@
                         <input class="form-control input-sm" placeholder="说点什么吧">
                     </div>
                     <div class="col-sm-3">
-                        <button type="button" class="btn btn-danger pull-right btn-block btn-sm" onclick="releaseComment(this);">评论</button>
+                        <button type="button" class="btn btn-danger pull-right btn-block btn-sm"
+                                onclick="releaseComment(this);">评论
+                        </button>
                     </div>
                 </div>
             </form>
         </div>
         <!-- /.box-footer -->
     </div>
-
 
 
 </template>
@@ -452,9 +466,9 @@
 
     function updateFollowInfo() {
         $.ajax({
-            type : "POST",  //提交方式
-            url : "index.php?/ajaxHelpers/followAjaxHelper/getCurrentUserFollowInfo",//路径
-            success : function(result) {//返回数据根据结果进行相应的处理
+            type: "POST",  //提交方式
+            url: "index.php?/ajaxHelpers/followAjaxHelper/getCurrentUserFollowInfo",//路径
+            success: function (result) {//返回数据根据结果进行相应的处理
                 var followInfo = JSON.parse(result);
                 $("#userName").html(followInfo.userName);
                 $("#followerCnt").html(followInfo.followerCnt);
@@ -466,9 +480,9 @@
 
     function updatePersonInfo() {
         $.ajax({
-            type : "POST",  //提交方式
-            url : "index.php?/ajaxHelpers/profileAjaxHelper/getCurrentProfileInfo",//路径
-            success : function(result) {//返回数据根据结果进行相应的处理
+            type: "POST",  //提交方式
+            url: "index.php?/ajaxHelpers/profileAjaxHelper/getCurrentProfileInfo",//路径
+            success: function (result) {//返回数据根据结果进行相应的处理
                 var profileInfo = JSON.parse(result);
                 $("#user-education-experience").html(profileInfo.educationExperience);
                 $("#user-email").html(profileInfo.email);
@@ -480,9 +494,9 @@
 
     function updateDynamic() {
         $.ajax({
-            type : "POST",  //提交方式
-            url : "index.php?/ajaxHelpers/socialMediaAjaxHelper/getCurrentUserCommentsDynamic",//路径
-            success : function(result) {//返回数据根据结果进行相应的处理
+            type: "POST",  //提交方式
+            url: "index.php?/ajaxHelpers/socialMediaAjaxHelper/getCurrentUserCommentsDynamic",//路径
+            success: function (result) {//返回数据根据结果进行相应的处理
                 updateDynamicList(result);
             }
         })
@@ -494,29 +508,27 @@
         var timeline = document.querySelector('#timeline');
         //timeline.innerHTML="";//删除所有子节点
 
-        $.each(JSON.parse(dynamics), function(idx, dynamic) {
+        $.each(JSON.parse(dynamics), function (idx, dynamic) {
             content.querySelector(".dynamicId").textContent = dynamic.rowid;
             content.querySelector(".dynamicContent").textContent = dynamic.content;
             content.querySelector(".dynamicUserName").textContent = dynamic.userName;
             //设置动态发布时间
-            releasedTime = '发布于 '+new Date(parseInt(dynamic.createdAt) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
+            releasedTime = '发布于 ' + new Date(parseInt(dynamic.createdAt) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
             content.querySelector(".releasedTime").textContent = releasedTime;
             //设置赞数
 
-            if(dynamic.isLike){
-                likesCnt = "已赞("+dynamic.likesCnt+")";
-            }else{
-                likesCnt = "赞("+dynamic.likesCnt+")";
+            if (dynamic.isLike) {
+                likesCnt = "已赞(" + dynamic.likesCnt + ")";
+            } else {
+                likesCnt = "赞(" + dynamic.likesCnt + ")";
 
             }
             content.querySelector(".btn-like").textContent = likesCnt;
 
 
             var commentBox = content.querySelector(".box-comments");
-            commentBox.innerHTML="";
-            updateComment(dynamic.rowid,commentBox);
-
-
+            commentBox.innerHTML = "";
+            updateComment(dynamic.rowid, commentBox);
 
 
             timeline.appendChild(itemTemplate.content.cloneNode(true));
@@ -524,27 +536,27 @@
 
     }
 
-    function updateComment(dynamicId,commentBox) {
+    function updateComment(dynamicId, commentBox) {
         $.ajax({
-            type : "POST",  //提交方式
-            url : "index.php?/ajaxHelpers/socialMediaAjaxHelper/getCommentsByDynamicId",//路径
-            async :false,
-            data : "dynamicId="+dynamicId,
-            success : function(result) {//返回数据根据结果进行相应的处理
-                updateCommentsList(result,commentBox);
+            type: "POST",  //提交方式
+            url: "index.php?/ajaxHelpers/socialMediaAjaxHelper/getCommentsByDynamicId",//路径
+            async: false,
+            data: "dynamicId=" + dynamicId,
+            success: function (result) {//返回数据根据结果进行相应的处理
+                updateCommentsList(result, commentBox);
             }
         })
     }
 
-    function updateCommentsList(comments,commentBox) {
-        $.each(JSON.parse(comments), function(idx, comment){
+    function updateCommentsList(comments, commentBox) {
+        $.each(JSON.parse(comments), function (idx, comment) {
             var commentItem = document.querySelector('#commentItem');
             var content = commentItem.content;
             content = content.cloneNode(true);
-            content.querySelector(".comment-text").innerHTML = content.querySelector(".comment-text").innerHTML+comment.content;
+            content.querySelector(".comment-text").innerHTML = content.querySelector(".comment-text").innerHTML + comment.content;
 
-            content.querySelector(".comment-userName").innerHTML = content.querySelector(".comment-userName").innerHTML+comment.userName;
-            releasedTime = new Date(parseInt(comment.createdAt) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
+            content.querySelector(".comment-userName").innerHTML = content.querySelector(".comment-userName").innerHTML + comment.userName;
+            releasedTime = new Date(parseInt(comment.createdAt) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
             content.querySelector(".comment-time").textContent = releasedTime;
 
             commentBox.appendChild(content);
@@ -552,25 +564,24 @@
     }
 
 
-
     function toggleLike(buttonLike) {
         length = buttonLike.innerHTML.length;
-        if(buttonLike.innerHTML.indexOf('赞')==0){
-            likesCnt = buttonLike.innerHTML.substring(2,length-1);
+        if (buttonLike.innerHTML.indexOf('赞') == 0) {
+            likesCnt = buttonLike.innerHTML.substring(2, length - 1);
             likesCnt++;
-            buttonLike.innerHTML = "已赞("+likesCnt+")";
-        }else{
-            likesCnt = buttonLike.innerHTML.substring(3,length-1);
+            buttonLike.innerHTML = "已赞(" + likesCnt + ")";
+        } else {
+            likesCnt = buttonLike.innerHTML.substring(3, length - 1);
             likesCnt--;
-            buttonLike.innerHTML = "赞("+likesCnt+")";
+            buttonLike.innerHTML = "赞(" + likesCnt + ")";
         }
         dynamicId = buttonLike.parentNode.parentNode.getElementsByTagName('p')[0].innerHTML;
 
         $.ajax({
-            type : "POST",  //提交方式
-            url : "index.php?/ajaxHelpers/socialMediaAjaxHelper/toggleLike",//路径
-            data :"dynamicId="+dynamicId,
-            success : function(result) {//返回数据根据结果进行相应的处理
+            type: "POST",  //提交方式
+            url: "index.php?/ajaxHelpers/socialMediaAjaxHelper/toggleLike",//路径
+            data: "dynamicId=" + dynamicId,
+            success: function (result) {//返回数据根据结果进行相应的处理
 
             }
         })
@@ -580,29 +591,28 @@
         commentContent = buttonComment.parentNode.parentNode.getElementsByTagName('input')[0].value;
         dynamicId = buttonComment.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByTagName('p')[0].innerHTML;
         $.ajax({
-            type : "POST",  //提交方式
-            url : "index.php?/ajaxHelpers/socialMediaAjaxHelper/releaseComment",//路径
-            data :"dynamicId="+dynamicId+"&content="+commentContent,
-            success : function(result) {//返回数据根据结果进行相应的处理
+            type: "POST",  //提交方式
+            url: "index.php?/ajaxHelpers/socialMediaAjaxHelper/releaseComment",//路径
+            data: "dynamicId=" + dynamicId + "&content=" + commentContent,
+            success: function (result) {//返回数据根据结果进行相应的处理
                 result = JSON.parse(result);
                 commentBox = buttonComment.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('box-comments')[0];
-                addComment(result,commentBox);
+                addComment(result, commentBox);
             }
         });
     }
 
-    function addComment(comment,commentBox) {
+    function addComment(comment, commentBox) {
         var commentItem = document.querySelector('#commentItem');
         var content = commentItem.content;
         content = content.cloneNode(true);
-        content.querySelector(".comment-text").innerHTML = content.querySelector(".comment-text").innerHTML+comment.content;
+        content.querySelector(".comment-text").innerHTML = content.querySelector(".comment-text").innerHTML + comment.content;
 
-        content.querySelector(".comment-userName").innerHTML = content.querySelector(".comment-userName").innerHTML+comment.userName;
-        releasedTime = new Date(parseInt(comment.createdAt) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
+        content.querySelector(".comment-userName").innerHTML = content.querySelector(".comment-userName").innerHTML + comment.userName;
+        releasedTime = new Date(parseInt(comment.createdAt) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
         content.querySelector(".comment-time").textContent = releasedTime;
         commentBox.appendChild(content);
     }
-
 
 
 </script>

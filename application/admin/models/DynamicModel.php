@@ -13,15 +13,17 @@ class DynamicModel extends CI_Model
         $this->load->database();
     }
 
-    public function findDynamicByUserId($userId){
+    public function findDynamicByUserId($userId)
+    {
         $this->db->select('rowid, *');
         $this->db->where('dynamic.deletedAt<', 0);
         $this->db->order_by('createdAt', 'DESC');
-        $query = $this->db->get_where('dynamic',array('userId'=>$userId));
+        $query = $this->db->get_where('dynamic', array('userId' => $userId));
         return $query->result_array();
     }
 
-    public function findDynamicsByUserIdArray($userIdArray){
+    public function findDynamicsByUserIdArray($userIdArray)
+    {
         $this->db->select('rowid, *');
         $this->db->where('dynamic.deletedAt<', 0);
         $this->db->where_in('dynamic.userId', $userIdArray);
@@ -30,29 +32,33 @@ class DynamicModel extends CI_Model
         return $query->result_array();
     }
 
-    public function insertDynamic($dynamicData){
+    public function insertDynamic($dynamicData)
+    {
         return $this->db->insert('dynamic', $dynamicData);
     }
 
-    public function findLikeByDynamicId($dynamicId){
-        $query = $this->db->get_where('dynamicLike',array('dynamicId'=>$dynamicId));
+    public function findLikeByDynamicId($dynamicId)
+    {
+        $query = $this->db->get_where('dynamicLike', array('dynamicId' => $dynamicId));
         return $query->result_array();
     }
 
-    public function findLikesByDynamicIdArray($dynamicIdArray){
+    public function findLikesByDynamicIdArray($dynamicIdArray)
+    {
         $this->db->where_in('dynamicId', $dynamicIdArray);
         $query = $this->db->get('dynamicLike');
         return $query->result_array();
     }
 
-    public function toggleLike($dynamicId,$userId){
-        $query = $this->db->get_where('dynamicLike',array('userId' => $userId,
-            'dynamicId'=>$dynamicId));
+    public function toggleLike($dynamicId, $userId)
+    {
+        $query = $this->db->get_where('dynamicLike', array('userId' => $userId,
+            'dynamicId' => $dynamicId));
         $result = $query->row_array();
-        if(count($result)>0){
+        if (count($result) > 0) {
             return $this->db->delete('dynamicLike', array('userId' => $userId,
-                'dynamicId'=>$dynamicId));
-        }else{
+                'dynamicId' => $dynamicId));
+        } else {
             $data = array(
                 'dynamicId' => $dynamicId,
                 'userId' => $userId,
@@ -62,21 +68,24 @@ class DynamicModel extends CI_Model
         }
     }
 
-    public function findCommentsByDynamicId($dynamicId){
-        $query = $this->db->get_where('dynamicComment',array('dynamicId'=>$dynamicId));
+    public function findCommentsByDynamicId($dynamicId)
+    {
+        $query = $this->db->get_where('dynamicComment', array('dynamicId' => $dynamicId));
         return $query->result_array();
     }
 
-    public function insertComment($comment){
+    public function insertComment($comment)
+    {
         return $this->db->insert('dynamicComment', $comment);
     }
 
-    public function findDynamicsByLikes($userId){
-        $query = $this->db->get_where('dynamicLike',array('userId'=>$userId));
+    public function findDynamicsByLikes($userId)
+    {
+        $query = $this->db->get_where('dynamicLike', array('userId' => $userId));
         $likesArray = $query->result_array();
         $dynamicIdArray = array();
-        foreach ($likesArray as $like){
-            array_push($dynamicIdArray,$like['dynamicId']);
+        foreach ($likesArray as $like) {
+            array_push($dynamicIdArray, $like['dynamicId']);
         }
 
         $this->db->select('rowid, *');
@@ -86,12 +95,13 @@ class DynamicModel extends CI_Model
         return $query->result_array();
     }
 
-    public function findDynamicsByComments($userId){
-        $query = $this->db->get_where('dynamicComment',array('userId'=>$userId));
+    public function findDynamicsByComments($userId)
+    {
+        $query = $this->db->get_where('dynamicComment', array('userId' => $userId));
         $commentsArray = $query->result_array();
         $dynamicIdArray = array();
-        foreach ($commentsArray as $comment){
-            array_push($dynamicIdArray,$comment['dynamicId']);
+        foreach ($commentsArray as $comment) {
+            array_push($dynamicIdArray, $comment['dynamicId']);
         }
 
         $this->db->select('rowid, *');

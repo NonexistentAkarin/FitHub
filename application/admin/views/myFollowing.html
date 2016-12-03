@@ -42,7 +42,8 @@
             <div class="container">
                 <div class="navbar-header">
                     <a href="personPage.html" class="navbar-brand"><b>卓尔运动</b></a>
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar-collapse">
                         <i class="fa fa-bars"></i>
                     </button>
                 </div>
@@ -50,7 +51,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php?/Pages/View/personPage">首页<span class="sr-only">(current)</span></a></li>
+                        <li class="active"><a href="index.php?/Pages/View/personPage">首页<span
+                                class="sr-only">(current)</span></a></li>
                         <li><a href="index.php?/Pages/sports/sportsPage">运动管理</a></li>
                         <li><a href="index.php?/Pages/activity/activityPage">活动专区</a></li>
                         <li><a href="index.php?/Pages/socialMedia/socialMediaPage">运动圈子</a></li>
@@ -93,7 +95,8 @@
                                             <a href="#">
                                                 <div class="pull-left">
                                                     <!-- User Image -->
-                                                    <img src="images/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                    <img src="images/user2-160x160.jpg" class="img-circle"
+                                                         alt="User Image">
                                                 </div>
                                                 <!-- Message title and timestamp -->
                                                 <h4>
@@ -158,7 +161,9 @@
                                                 <!-- The progress bar -->
                                                 <div class="progress xs">
                                                     <!-- Change the css width attribute to simulate progress -->
-                                                    <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                    <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                         role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                         aria-valuemax="100">
                                                         <span class="sr-only">已完成 20%</span>
                                                     </div>
                                                 </div>
@@ -275,7 +280,8 @@
                     <!-- Profile Image -->
                     <div class="box box-primary">
                         <div class="box-body box-profile">
-                            <img class="profile-user-img img-responsive img-circle" src="../../images/user1-128x128.jpg" alt="User profile picture">
+                            <img class="profile-user-img img-responsive img-circle" src="../../images/user1-128x128.jpg"
+                                 alt="User profile picture">
 
                             <h3 class="profile-username text-center" id="userName">卓尔运动用户</h3>
 
@@ -283,10 +289,12 @@
 
                             <ul class="list-group list-group-unbordered">
                                 <li class="list-group-item">
-                                    <b>谁关注了我</b> <a class="pull-right" id="followerCnt" href="index.php?/Pages/socialMedia/myFollower">0</a>
+                                    <b>谁关注了我</b> <a class="pull-right" id="followerCnt"
+                                                    href="index.php?/Pages/socialMedia/myFollower">0</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>我关注了谁</b> <a class="pull-right" id="followingCnt" href="index.php?/Pages/socialMedia/myFollowing">0</a>
+                                    <b>我关注了谁</b> <a class="pull-right" id="followingCnt"
+                                                    href="index.php?/Pages/socialMedia/myFollowing">0</a>
                                 </li>
                                 <li class="list-group-item">
                                     <b>朋友</b> <a class="pull-right" id="friendsCnt">0</a>
@@ -384,7 +392,6 @@
     </div>
 
 
-
 </template>
 
 
@@ -397,9 +404,9 @@
 
     function updateFollowInfo() {
         $.ajax({
-            type : "POST",  //提交方式
-            url : "index.php?/ajaxHelpers/followAjaxHelper/getCurrentUserFollowInfo",//路径
-            success : function(result) {//返回数据根据结果进行相应的处理
+            type: "POST",  //提交方式
+            url: "index.php?/ajaxHelpers/followAjaxHelper/getCurrentUserFollowInfo",//路径
+            success: function (result) {//返回数据根据结果进行相应的处理
                 var followInfo = JSON.parse(result);
                 $("#userName").html(followInfo.userName);
                 $("#followerCnt").html(followInfo.followerCnt);
@@ -411,9 +418,9 @@
 
     function updatePersonInfo() {
         $.ajax({
-            type : "POST",  //提交方式
-            url : "index.php?/ajaxHelpers/profileAjaxHelper/getCurrentProfileInfo",//路径
-            success : function(result) {//返回数据根据结果进行相应的处理
+            type: "POST",  //提交方式
+            url: "index.php?/ajaxHelpers/profileAjaxHelper/getCurrentProfileInfo",//路径
+            success: function (result) {//返回数据根据结果进行相应的处理
                 var profileInfo = JSON.parse(result);
                 $("#user-education-experience").html(profileInfo.educationExperience);
                 $("#user-email").html(profileInfo.email);
@@ -425,9 +432,9 @@
 
     function updateUser() {
         $.ajax({
-            type : "POST",  //提交方式
-            url : "index.php?/ajaxHelpers/socialMediaAjaxHelper/getCurrentUserFollowing",//路径
-            success : function(result) {//返回数据根据结果进行相应的处理
+            type: "POST",  //提交方式
+            url: "index.php?/ajaxHelpers/socialMediaAjaxHelper/getCurrentUserFollowing",//路径
+            success: function (result) {//返回数据根据结果进行相应的处理
                 updateUserList(result);
             }
         })
@@ -438,20 +445,19 @@
         var timeline = document.querySelector('#userList');
         //timeline.innerHTML="";//删除所有子节点
 
-        $.each(JSON.parse(followArray), function(idx, follow) {
+        $.each(JSON.parse(followArray), function (idx, follow) {
             content.querySelector(".userId").textContent = follow.followingId;
             content.querySelector(".userName").textContent = follow.userName;
 
-            followTime = '关注于 '+new Date(parseInt(follow.createdAt) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
+            followTime = '关注于 ' + new Date(parseInt(follow.createdAt) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
             content.querySelector(".followTime").textContent = followTime;
 
-            content.querySelector(".userInfoPageLink").href = "index.php?/Pages/socialMedia/personInfo/"+follow.followingId;
+            content.querySelector(".userInfoPageLink").href = "index.php?/Pages/socialMedia/personInfo/" + follow.followingId;
 
             timeline.appendChild(itemTemplate.content.cloneNode(true));
         });
 
     }
-
 
 
 </script>

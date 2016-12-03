@@ -16,142 +16,154 @@ class socialMediaAjaxHelper extends MY_Controller
         $this->load->model('userModel');
     }
 
-    public function getCurrentUserFollower(){
+    public function getCurrentUserFollower()
+    {
         $userId = $this->user->id;
         $followArray = $this->followModel->findFollowerAndUserNameByUserId($userId);
         echo json_encode($followArray);
     }
 
-    public function getCurrentUserFollowing(){
+    public function getCurrentUserFollowing()
+    {
         $userId = $this->user->id;
         $followArray = $this->followModel->findFollowingAndUserNameByUserId($userId);
         echo json_encode($followArray);
     }
 
-    public function getCurrentUserLikesDynamic(){
+    public function getCurrentUserLikesDynamic()
+    {
         $userId = $this->user->id;
         $result = $this->dynamicModel->findDynamicsByLikes($userId);
 
         $userIdArray = array();
-        foreach ($result as $dynamic){
-            array_push($userIdArray,$dynamic['userId']);
+        foreach ($result as $dynamic) {
+            array_push($userIdArray, $dynamic['userId']);
         }
-        $result = $this->addUserNameToDynamic($result,$userIdArray);
+        $result = $this->addUserNameToDynamic($result, $userIdArray);
         $result = $this->addLikesCntToDynamic($result);
         echo json_encode($result);
     }
 
-    public function getCurrentUserCommentsDynamic(){
+    public function getCurrentUserCommentsDynamic()
+    {
         $userId = $this->user->id;
         $result = $this->dynamicModel->findDynamicsByComments($userId);
 
         $userIdArray = array();
-        foreach ($result as $dynamic){
-            array_push($userIdArray,$dynamic['userId']);
+        foreach ($result as $dynamic) {
+            array_push($userIdArray, $dynamic['userId']);
         }
-        $result = $this->addUserNameToDynamic($result,$userIdArray);
+        $result = $this->addUserNameToDynamic($result, $userIdArray);
         $result = $this->addLikesCntToDynamic($result);
         echo json_encode($result);
     }
 
-    public function getCurrentUserAndFollowingDynamic(){
+    public function getCurrentUserAndFollowingDynamic()
+    {
         $userId = $this->user->id;
         $followingArray = $this->followModel->findFollowingByUserId($userId);
-        $userIdArray=array($userId);
-        foreach ($followingArray as $following){
-            array_push($userIdArray,$following['followingId']);
+        $userIdArray = array($userId);
+        foreach ($followingArray as $following) {
+            array_push($userIdArray, $following['followingId']);
         }
         $result = $this->dynamicModel->findDynamicsByUserIdArray($userIdArray);
-        $result = $this->addUserNameToDynamic($result,$userIdArray);
+        $result = $this->addUserNameToDynamic($result, $userIdArray);
         $result = $this->addLikesCntToDynamic($result);
         echo json_encode($result);
     }
 
-    public function getCurrentUserDynamic(){
+    public function getCurrentUserDynamic()
+    {
         $userId = $this->user->id;
-        $userIdArray=array($userId);
+        $userIdArray = array($userId);
         $result = $this->dynamicModel->findDynamicsByUserIdArray($userIdArray);
-        $result = $this->addUserNameToDynamic($result,$userIdArray);
+        $result = $this->addUserNameToDynamic($result, $userIdArray);
         $result = $this->addLikesCntToDynamic($result);
         echo json_encode($result);
     }
 
-    private function addUserNameToDynamic($dynamics,$userIdArray){
+    private function addUserNameToDynamic($dynamics, $userIdArray)
+    {
         $userArray = $this->userModel->findUsersByIdArray($userIdArray);
         $result = array();
-        foreach ($dynamics as $dynamic){
-            foreach ($userArray as $user){
-                if($dynamic['userId']==$user['id']){
-                    $dynamic['userName']=$user['username'];
+        foreach ($dynamics as $dynamic) {
+            foreach ($userArray as $user) {
+                if ($dynamic['userId'] == $user['id']) {
+                    $dynamic['userName'] = $user['username'];
                     break;
                 }
             }
-            array_push($result,$dynamic);
+            array_push($result, $dynamic);
         }
         return $result;
     }
 
-    private function addLikesCntToDynamic($dynamics){
+    private function addLikesCntToDynamic($dynamics)
+    {
         $userId = $this->user->id;
         $dynamicIdArray = array();
-        foreach ($dynamics as $dynamic){
-            array_push($dynamicIdArray,$dynamic['rowid']);
+        foreach ($dynamics as $dynamic) {
+            array_push($dynamicIdArray, $dynamic['rowid']);
         }
         $likesArray = $this->dynamicModel->findLikesByDynamicIdArray($dynamicIdArray);
 
         $result = array();
-        foreach ($dynamics as $dynamic){
+        foreach ($dynamics as $dynamic) {
             $dynamic['likesCnt'] = 0;
             $dynamic['isLike'] = false;
-            foreach ($likesArray as $like){
-                if($dynamic['rowid']==$like['dynamicId']){
+            foreach ($likesArray as $like) {
+                if ($dynamic['rowid'] == $like['dynamicId']) {
                     $dynamic['likesCnt']++;
-                    if($like['userId']==$userId){
+                    if ($like['userId'] == $userId) {
                         $dynamic['isLike'] = true;
                     }
                 }
             }
-            array_push($result,$dynamic);
+            array_push($result, $dynamic);
         }
 
         return $result;
 
     }
 
-    public function toggleLike(){
+    public function toggleLike()
+    {
         $userId = $this->user->id;
         $dynamicId = $this->input->post('dynamicId');
-        echo $this->dynamicModel->toggleLike($dynamicId,$userId);
+        echo $this->dynamicModel->toggleLike($dynamicId, $userId);
     }
 
-    public function getCommentsByDynamicId(){
+    public function getCommentsByDynamicId()
+    {
         $dynamicId = $this->input->post('dynamicId');
         $comments = $this->dynamicModel->findCommentsByDynamicId($dynamicId);
-        $userIdArray=array();
-        foreach ($comments as $comment){
-            array_push($userIdArray,$comment['userId']);
+        $userIdArray = array();
+        foreach ($comments as $comment) {
+            array_push($userIdArray, $comment['userId']);
         }
-        $comments=$this->addUserNameToComments($comments,$userIdArray);
+        $comments = $this->addUserNameToComments($comments, $userIdArray);
 
         echo json_encode($comments);
     }
 
-    private function addUserNameToComments($comments,$userIdArray){
+    private function addUserNameToComments($comments, $userIdArray)
+    {
         $userArray = $this->userModel->findUsersByIdArray($userIdArray);
         $result = array();
-        foreach ($comments as $comment){
-            foreach ($userArray as $user){
-                if($comment['userId']==$user['id']){
-                    $comment['userName']=$user['username'];
+        foreach ($comments as $comment) {
+            foreach ($userArray as $user) {
+                if ($comment['userId'] == $user['id']) {
+                    $comment['userName'] = $user['username'];
                     break;
                 }
             }
-            array_push($result,$comment);
+            array_push($result, $comment);
         }
         return $result;
     }
 
-    public function releaseComment(){
+    public function releaseComment()
+    {
         $dynamicId = $this->input->post('dynamicId');
         $content = $this->input->post('content');
         $userId = $this->user->id;

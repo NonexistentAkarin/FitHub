@@ -68,8 +68,6 @@ class Member_Current_User{
 					
 					self::$ci->session->set_userdata('member_userid', $u->id);
 					self::$ci->session->set_userdata('IsAuthorized', TRUE);
-					self::$ci->session->set_userdata('member_companyid', $u->company_id);
-					
 					
 					session_write_close();
 					self::$user = $u;

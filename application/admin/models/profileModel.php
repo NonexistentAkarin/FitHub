@@ -13,14 +13,16 @@ class profileModel extends CI_Model
         $this->load->database();
     }
 
-    public function findProfileInfoById($userId){
+    public function findProfileInfoById($userId)
+    {
         $this->db->select('*');
-        $query = $this->db->get_where('users',array('id'=>$userId));
+        $query = $this->db->get_where('users', array('id' => $userId));
         return $query->row_array();
     }
 
-    public function updateProfileInfoById($profile){
-        return $this->db->replace('users',$profile);
+    public function updateProfileInfoById($profile)
+    {
+        return $this->db->replace('users', $profile);
     }
 
 }

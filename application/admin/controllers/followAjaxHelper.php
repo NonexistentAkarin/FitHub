@@ -15,62 +15,57 @@ class followAjaxHelper extends MY_Controller
         $this->load->model('userModel');
     }
 
-    public function index(){
+    public function index()
+    {
         echo 'haha';
     }
 
-    public function toggleFollowing(){
+    public function toggleFollowing()
+    {
         $followerId = $this->user->id;
         $followingId = $this->input->post('userId');
-        echo $this->followModel->toggleFollowing($followerId,$followingId);
+        echo $this->followModel->toggleFollowing($followerId, $followingId);
     }
 
-    public function checkIfFollowing(){
+    public function checkIfFollowing()
+    {
         $userId = $this->input->post('userId');
         $myId = $this->user->id;
         $followerArray = $this->followModel->findFollowerByUserId($userId);
         $result = false;
-        foreach ($followerArray as $follower){
-            if($myId==$follower['followId']){
+        foreach ($followerArray as $follower) {
+            if ($myId == $follower['followerId']) {
                 $result = true;
             }
         }
         echo $result;
     }
 
-    public function getCurrentUserFollowInfo(){
+    public function getCurrentUserFollowInfo()
+    {
         $userId = $this->user->id;
-        $resultArray = $this->getCountOfFollower($userId);
-        $resultArray['userName'] = $this->user->username;
+        $resultArray = $this->getCountOfFollow($userId);
         echo json_encode($resultArray);
     }
 
-    public function getUserFollowInfo(){
+    public function getUserFollowInfo()
+    {
         $userId = $this->input->post('userId');
-        $resultArray = $this->getCountOfFollower($userId);
+        $resultArray = $this->getCountOfFollow($userId);
         $user = $this->userModel->findUserById($userId);
-        $resultArray['userName'] = $user['userName'];
-        echo json_encode($resultArray);
+        echo json_encode(array_merge($user,$resultArray));
     }
 
-    private function getCountOfFollower($userId){
+    private function getCountOfFollow($userId)
+    {
         $followerArray = $this->followModel->findFollowerByUserId($userId);
         $followingArray = $this->followModel->findFollowingByUserId($userId);
-        $friendsCnt = 0;
-
-        foreach ($followerArray as $follower){
-            foreach ($followingArray as $following){
-                if($follower==$following){
-                    $friendsCnt++;
-                }
-            }
-        }
 
         $result = array(
-            'followerCnt'  => count($followerArray),
-            'followingCnt'     => count($followingArray),
-            'friendsCnt' =>$friendsCnt,
+            'followerCnt' => count($followerArray),
+            'followingCnt' => count($followingArray),
         );
+
         return $result;
     }
 }
