@@ -26,9 +26,9 @@ class Welcome extends MY_Controller {
 
 		$this->load->view('welcome_message', $this->template_data);
 	}
-	
-	function dashboard(){	
-		
+
+	function dashboard(){
+
 		$this->load->view('dashboard', $this->template_data);
 	}
 }

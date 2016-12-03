@@ -159,14 +159,28 @@
 				<span>Calendar</span>
 			</a>
 		</li>
-		
-				<li>
+		<li>
 			<a href="#/clear_cache">
 				<i class="fa fa-cubes"></i>
 				<span>Clear Clear</span>
 			</a>
 		</li>
-		
+
+          <li class="treeview">
+              <a href="#/Socialization">
+                  <i class="fa fa-cubes"></i>
+                  <span>Socialization</span>
+                  <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+              </a>
+              <ul class="treeview-menu">
+                  <li><a href="#/Socialization"><i class="fa fa-circle-o"></i> Moments</a></li>
+                  <li><a href="#/Socialization?m=myMoments"><i class="fa fa-circle-o"></i> My Moments</a></li>
+                  <li><a href="#/Socialization?m=myLikes"><i class="fa fa-circle-o"></i> My Likes</a></li>
+                  <li><a href="#/Socialization?m=myComments"><i class="fa fa-circle-o"></i> My Comments</a></li>
+              </ul>
+          </li>
 		
 		<li class="header">User Management</li>
 		<li><a href="<?php echo '#/users';?>"><i class="fa fa-user"></i> <span>Users</span></a></li>

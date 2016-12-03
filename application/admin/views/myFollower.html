@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>卓尔运动</title>
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="resource/AdminLTE-2.3.7/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="resource/AdminLTE-2.3.7/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+     folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="resource/AdminLTE-2.3.7/dist/css/skins/_all-skins.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="resource/AdminLTE-2.3.7/plugins/iCheck/square/blue.css">
+
+
+    <!--default-js-->
+    <script src="resource/AdminLTE-2.3.7/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!--bootstrap-js-->
+    <script src="resource/AdminLTE-2.3.7/bootstrap/js/bootstrap.min.js"></script>
+    <!--script-->
+    <script src="resource/JQueryCircleChart/jquery.circlechart.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="hold-transition skin-blue layout-top-nav">
+<div>
+    <header class="main-header">
+        <nav class="navbar navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="personPage.html" class="navbar-brand"><b>卓尔运动</b></a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.php?/Pages/View/personPage">首页<span class="sr-only">(current)</span></a></li>
+                        <li><a href="index.php?/Pages/sports/sportsPage">运动管理</a></li>
+                        <li><a href="index.php?/Pages/activity/activityPage">活动专区</a></li>
+                        <li><a href="index.php?/Pages/socialMedia/socialMediaPage">运动圈子</a></li>
+                        <!--<li class="dropdown">-->
+                        <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>-->
+                        <!--<ul class="dropdown-menu" role="menu">-->
+                        <!--<li><a href="#">Action</a></li>-->
+                        <!--<li><a href="#">Another action</a></li>-->
+                        <!--<li><a href="#">Something else here</a></li>-->
+                        <!--<li class="divider"></li>-->
+                        <!--<li><a href="#">Separated link</a></li>-->
+                        <!--<li class="divider"></li>-->
+                        <!--<li><a href="#">One more separated link</a></li>-->
+                        <!--</ul>-->
+                        <!--</li>-->
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="navbar-search-input" placeholder="搜索">
+                        </div>
+                    </form>
+                </div>
+                <!-- /.navbar-collapse -->
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- Messages: style can be found in dropdown.less-->
+                        <li class="dropdown messages-menu">
+                            <!-- Menu toggle button -->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope-o"></i>
+                                <span class="label label-success">1</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">你有1条未读信息</li>
+                                <li>
+                                    <!-- inner menu: contains the messages -->
+                                    <ul class="menu">
+                                        <li><!-- start message -->
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <!-- User Image -->
+                                                    <img src="images/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                </div>
+                                                <!-- Message title and timestamp -->
+                                                <h4>
+                                                    官方活动助手
+                                                    <small><i class="fa fa-clock-o"></i> 5 分钟前</small>
+                                                </h4>
+                                                <!-- The message -->
+                                                <p>快来跑南京马拉松</p>
+                                            </a>
+                                        </li>
+                                        <!-- end message -->
+                                    </ul>
+                                    <!-- /.menu -->
+                                </li>
+                                <li class="footer"><a href="#">查看所有消息</a></li>
+                            </ul>
+                        </li>
+                        <!-- /.messages-menu -->
+
+                        <!-- Notifications Menu -->
+                        <li class="dropdown notifications-menu">
+                            <!-- Menu toggle button -->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell-o"></i>
+                                <span class="label label-warning">1</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">你有1个新的通知</li>
+                                <li>
+                                    <!-- Inner Menu: contains the notifications -->
+                                    <ul class="menu">
+                                        <li><!-- start notification -->
+                                            <a href="#">
+                                                <i class="fa fa-users text-aqua"></i> 你参加的南京马拉松活动有新通知了
+                                            </a>
+                                        </li>
+                                        <!-- end notification -->
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">查看所有</a></li>
+                            </ul>
+                        </li>
+                        <!-- Tasks Menu -->
+                        <li class="dropdown tasks-menu">
+                            <!-- Menu Toggle Button -->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-flag-o"></i>
+                                <span class="label label-danger">1</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">你有1个任务</li>
+                                <li>
+                                    <!-- Inner menu: contains the tasks -->
+                                    <ul class="menu">
+                                        <li><!-- Task item -->
+                                            <a href="#">
+                                                <!-- Task title and progress text -->
+                                                <h3>
+                                                    慢跑2000米
+                                                    <small class="pull-right">20%</small>
+                                                </h3>
+                                                <!-- The progress bar -->
+                                                <div class="progress xs">
+                                                    <!-- Change the css width attribute to simulate progress -->
+                                                    <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                        <span class="sr-only">已完成 20%</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <!-- end task item -->
+                                    </ul>
+                                </li>
+                                <li class="footer">
+                                    <a href="#">查看所有任务</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- User Account Menu -->
+                        <li class="dropdown user user-menu">
+                            <!-- Menu Toggle Button -->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <!-- The user image in the navbar-->
+                                <img src="images/user1-128x128.jpg" class="user-image" alt="User Image">
+                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                                <span class="hidden-xs">忙碌的原核生物</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- The user image in the menu -->
+                                <li class="user-header">
+                                    <img src="images/user1-128x128.jpg" class="img-circle" alt="User Image">
+
+                                    <p>
+                                        忙碌的原核生物 - 软件工程师
+                                        <small>于2016年10月注册</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                <li class="user-body">
+                                    <div class="row">
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#">谁关注了我</a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#">我关注了谁</a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#">朋友</a>
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="index.php?/Pages/profile/basicInfo" class="btn btn-default btn-flat">账号设置</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="index.php?/Pages/logout" class="btn btn-default btn-flat">退出登录</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-custom-menu -->
+            </div>
+
+            <!-- /.container-fluid -->
+        </nav>
+    </header>
+
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+
+
+        <!-- Main content -->
+        <section class="content">
+
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="index.php?/Pages/socialMedia/socialMediaPage">首页</a></li>
+                        <li role="presentation" class="nav-divider"></li>
+                        <li><a href="index.php?/Pages/socialMedia/myDynamics">我的说说</a></li>
+                        <li><a href="index.php?/Pages/socialMedia/myLikes">我的赞</a></li>
+                        <li><a href="index.php?/Pages/socialMedia/myComments">我的评论</a></li>
+                        <li role="presentation" class="nav-divider"></li>
+                        <li><a href="index.php?/Pages/socialMedia/myFollowing">我的关注</a></li>
+                        <li class="active"><a href="index.php?/Pages/socialMedia/myFollower">谁关注了我</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-md-6">
+
+                    <div class="row clearfix">
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#timeline" data-toggle="tab">关注列表</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane active" id="userList">
+
+                                </div>
+                                <!-- /.tab-pane -->
+
+
+                            </div>
+                            <!-- /.tab-content -->
+                        </div>
+                        <!-- /.nav-tabs-custom -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+
+                    <!-- Profile Image -->
+                    <div class="box box-primary">
+                        <div class="box-body box-profile">
+                            <img class="profile-user-img img-responsive img-circle" src="../../images/user1-128x128.jpg" alt="User profile picture">
+
+                            <h3 class="profile-username text-center" id="userName">卓尔运动用户</h3>
+
+                            <p class="text-muted text-center" id="userJob">一个健康的人</p>
+
+                            <ul class="list-group list-group-unbordered">
+                                <li class="list-group-item">
+                                    <b>谁关注了我</b> <a class="pull-right" id="followerCnt" href="index.php?/Pages/socialMedia/myFollower">0</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>我关注了谁</b> <a class="pull-right" id="followingCnt" href="index.php?/Pages/socialMedia/myFollowing">0</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>朋友</b> <a class="pull-right" id="friendsCnt">0</a>
+                                </li>
+                            </ul>
+
+                            <!--<a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>-->
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+
+                    <!-- About Me Box -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">有关于我</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <strong><i class="fa fa-book margin-r-5"></i>教育经历</strong>
+
+                            <p class="text-muted" id="user-education-experience">
+                            </p>
+
+                            <hr>
+
+                            <strong><i class="fa fa-email-marker margin-r-5"></i> 邮箱地址</strong>
+
+                            <p class="text-muted" id="user-email">
+
+                            </p>
+
+                            <hr>
+
+                            <strong><i class="fa fa-pencil margin-r-5"></i> 技能</strong>
+
+                            <p class="text-muted" id="user-skills">
+                            </p>
+
+                            <hr>
+
+                            <strong><i class="fa fa-file-text-o margin-r-5"></i> 个人签名</strong>
+
+                            <p class="text-muted" id="user-motto">
+
+                            </p>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.1.0
+            </div>
+            <strong>Copyright &copy; 2014-2016 <a href="http://index.com">卓尔运动</a>.</strong> All rights
+            reserved.
+        </div>
+        <!-- /.container -->
+    </footer>
+
+</div>
+
+<template id="userItem">
+    <div class="box box-widget">
+        <p class="userId" hidden></p>
+        <div class="box-header with-border">
+            <div class="user-block">
+                <img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Image">
+                <a href="#" class="userInfoPageLink"><span class="username userName">Jonathan Burke Jr.</span></a>
+                <span class="description followTime">Shared publicly - 7:30 PM Today</span>
+            </div>
+            <!-- /.user-block -->
+            <div class="box-tools">
+                <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Mark as read">
+                    <i class="fa fa-circle-o"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+            <!-- /.box-tools -->
+        </div>
+        <!-- /.box-header -->
+    </div>
+
+
+
+</template>
+
+
+<script>
+    $(function () {
+        updateUser();
+        updateFollowInfo();
+        updatePersonInfo();
+    });
+
+    function updateFollowInfo() {
+        $.ajax({
+            type : "POST",  //提交方式
+            url : "index.php?/ajaxHelpers/followAjaxHelper/getCurrentUserFollowInfo",//路径
+            success : function(result) {//返回数据根据结果进行相应的处理
+                var followInfo = JSON.parse(result);
+                $("#userName").html(followInfo.userName);
+                $("#followerCnt").html(followInfo.followerCnt);
+                $("#followingCnt").html(followInfo.followingCnt);
+                $("#friendsCnt").html(followInfo.friendsCnt);
+            }
+        })
+    }
+
+    function updatePersonInfo() {
+        $.ajax({
+            type : "POST",  //提交方式
+            url : "index.php?/ajaxHelpers/profileAjaxHelper/getCurrentProfileInfo",//路径
+            success : function(result) {//返回数据根据结果进行相应的处理
+                var profileInfo = JSON.parse(result);
+                $("#user-education-experience").html(profileInfo.educationExperience);
+                $("#user-email").html(profileInfo.email);
+                $("#user-motto").html(profileInfo.motto);
+                $("#user-skills").html(profileInfo.skills);
+            }
+        })
+    }
+
+    function updateUser() {
+        $.ajax({
+            type : "POST",  //提交方式
+            url : "index.php?/ajaxHelpers/socialMediaAjaxHelper/getCurrentUserFollower",//路径
+            success : function(result) {//返回数据根据结果进行相应的处理
+                updateUserList(result);
+            }
+        })
+    }
+    function updateUserList(followArray) {
+        var itemTemplate = document.querySelector('#userItem');
+        var content = itemTemplate.content;
+        var timeline = document.querySelector('#userList');
+        //timeline.innerHTML="";//删除所有子节点
+
+        $.each(JSON.parse(followArray), function(idx, follow) {
+            content.querySelector(".userId").textContent = follow.followerId;
+            content.querySelector(".userName").textContent = follow.userName;
+
+            followTime = '关注于 '+new Date(parseInt(follow.createdAt) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
+            content.querySelector(".followTime").textContent = followTime;
+
+            content.querySelector(".userInfoPageLink").href = "index.php?/Pages/socialMedia/personInfo/"+follow.followerId;
+
+            timeline.appendChild(itemTemplate.content.cloneNode(true));
+        });
+
+    }
+
+
+
+</script>
+
+
+</body>
+</html>

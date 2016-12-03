@@ -7,6 +7,9 @@
           <mappings>
             <mapping deploy="\FitHub\" local="$PROJECT_DIR$" web="/Fithub" />
           </mappings>
+          <excludedPaths>
+            <excludedPath path="FitHub/application/database" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>
