@@ -61,6 +61,7 @@ class Accounts extends MY_Controller
         foreach ($results as $row) {
             $data = array();
             $data['no'] = $i;
+            $data['id'] = $row->id;
             $data['username'] = $row->username;
             $data['email'] = $row->email;
             $data['reg_time'] = $row->reg_time;

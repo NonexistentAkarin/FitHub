@@ -160,6 +160,7 @@
             content.querySelector(".dynamicId").textContent = dynamic.rowid;
             content.querySelector(".dynamicContent").textContent = dynamic.content;
             content.querySelector(".dynamicUserName").textContent = dynamic.userName;
+            content.querySelector(".userInfoPageLink").href = '#/profile?id=' + dynamic.userId;
             //设置动态发布时间
             releasedTime = 'Shared publicly - ' + new Date(parseInt(dynamic.createdAt) * 1000).toDateString();
             content.querySelector(".releasedTime").textContent = releasedTime;

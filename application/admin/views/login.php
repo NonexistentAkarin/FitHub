@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CXPCMS | Login</title>
+    <title>FitHub | Login</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="<?php echo base_url(); ?>resource/adminlte/bootstrap/css/bootstrap.min.css">
@@ -24,7 +24,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="<?php echo site_url(''); ?>">CXPCMS</a>
+        <a href="<?php echo site_url(''); ?>">FitHub</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -80,7 +80,7 @@
 
         <br>
 
-        <a href="<?php echo site_url('c=register&m=findpassword'); ?>">Forget Password?</a>
+        <a href="<?php echo site_url('c=login&m=findpassword'); ?>">Forget Password?</a>
 
     </div>
     <!-- /.login-box-body -->

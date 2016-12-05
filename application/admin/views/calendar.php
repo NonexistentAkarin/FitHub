@@ -154,6 +154,11 @@
                 },
                 error: function () {
                     toastr.error('数据加载失败');
+                },
+                getEditUrl : function() {
+                    return function () {
+                        return this.url;
+                    };
                 }
             },
             eventClick: function (calEvent, jsEvent, view) {
@@ -168,7 +173,8 @@
             },
             editable: true,
             droppable: true, // this allows things to be dropped onto the calendar !!!
-            drop: function (date, allDay) { // this function is called when something is dropped
+            drop: function (date, event) { // this function is called when something is dropped
+
                 // retrieve the dropped element's stored Event Object
                 var originalEventObject = $(this).data('eventObject');
 
@@ -176,23 +182,54 @@
                 var copiedEventObject = $.extend({}, originalEventObject);
 
                 // assign it the date that was reported
-                copiedEventObject.start = date;
-                copiedEventObject.allDay = allDay;
+                copiedEventObject.start = date.format();
+                copiedEventObject.allDay = true;
                 copiedEventObject.backgroundColor = $(this).css("background-color");
                 copiedEventObject.borderColor = $(this).css("border-color");
 
-//            var title = copiedEventObject.title;
-//            var start =  copiedEventObject.start;
-//            var allDay =  copiedEventObject.allDay;
+                var event_title = copiedEventObject.title;
+                var event_date = date.format();
+                var event_backgroundColor = copiedEventObject.backgroundColor;
+                var event_borderColor = copiedEventObject.borderColor;
 
-//          $.post(BASE_URL+'c=calendar&m=save',{
-//            title:title,start:start,end:start, e_hour:'00',e_minute:'00',s_hour:'00',s_minute:'00',
-//            backgroundColor:$(this).css("background-color"),borderColor:$(this).css("border-color"),
-//            isallday:allDay,isend:1
-//          },function(msg){
-//            console.log("xixi");
-//          });
+                $.ajax({
+                    url: BASE_URL+'?c=calendar&m=save',
+                    type: 'post',
+                    data: {
+                        title: event_title,
+                        backgroundColor: event_backgroundColor,
+                        borderColor: event_borderColor,
+                        start: event_date,
+                        end: event_date,
+                        isallday: 1,
+                        isend: 0,
+                        e_hour:'00',
+                        e_minute:'00',
+                        s_hour:'00',
+                        s_minute:'00'
+                    },
+                    success: function(response){
 
+                    },
+                    error: function(){
+                        alert("error");
+                    }
+                });
+
+                copiedEventObject = {
+                    id: 3,
+                    title: event_title,
+                    backgroundColor: event_backgroundColor,
+                    borderColor: event_borderColor,
+                    start: event_date,
+                    end: event_date,
+                    isallday: 1,
+                    isend: 0,
+                    e_hour:'00',
+                    e_minute:'00',
+                    s_hour:'00',
+                    s_minute:'00'
+                }
 
                 // render the event on the calendar
                 // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
@@ -205,8 +242,28 @@
                 }
 
             },
-            eventDrop: function (event, dayDelta, minuteDelta, allDay, revertFunc, jsEvent, ui, view) {
-                console.log("xixi");
+            eventDrop: function (event, dayDelta, minuteDelta, allDay, revertFunc) {
+
+                // retrieve the dropped element's stored Event Object
+                var originalEventObject = $(this).data('eventObject');
+
+                // we need to copy it, so that multiple events don't have a reference to the same object
+                var copiedEventObject = $.extend({}, originalEventObject);
+
+                console.log(copiedEventObject);
+
+                $.post(BASE_URL +'?c=calendar&m=drag',{
+                    id:copiedEventObject.id,
+                    start:dayDelta,
+                    end:copiedEventObject.end,
+                    allday:copiedEventObject.allDay
+                },function(msg){
+                    if(msg!=1){
+                        alert(msg);
+                        revertFunc();
+                    }
+                });
+
             },
             eventResize: function (event, dayDelta, minuteDelta, revertFunc, jsEvent, ui, view) {
                 console.log("sb");
@@ -222,6 +279,8 @@
                 fixed: true,
                 onremove: function () {
                     $('#calendar').fullCalendar('refetchEvents');
+//                    $('#calendar').fullCalendar('removeEventSources');
+//                    $('#calendar').fullCalendar('refetchEvents');
                 }
             });
             d.showModal();

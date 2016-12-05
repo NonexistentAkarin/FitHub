@@ -93,7 +93,6 @@
             data: "userId=<?php echo $pid; ?>",
             success: function (result) {//返回数据根据结果进行相应的处理
                 if (result) {
-                    console.log(result);
                     $("#follow-btn").removeClass("btn-danger").addClass("btn-primary").html("Followed");
                 }
 

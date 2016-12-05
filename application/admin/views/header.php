@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CXPCMS</title>
+    <meta name="robots" content="noindex,nofollow,nosnippet" />
+    <title>FitHub</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -78,7 +79,7 @@
             src="<?php echo base_url(); ?>resource/adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>resource/adminlte/dist/js/app.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>resource/sammy/lib/min/sammy-latest.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>resource/js/server.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>resource/js/server2.js"></script>
 </head>
 <body class="hold-transition skin-blue-light fixed sidebar-mini">
 <div class="wrapper">
@@ -88,9 +89,9 @@
         <!-- Logo -->
         <a href="<?php echo site_url(''); ?>" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini">CXP</span>
+            <span class="logo-mini"><b>F</b>H</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg">CXPCMS</span>
+            <span class="logo-lg"><b>Fit</b>Hub</span>
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -111,14 +112,14 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="<?php echo base_url(); ?>resource/adminlte/dist/img/user2-160x160.jpg"
+                            <img src="<?php echo base_url(); ?>resource/adminlte/dist/img/user9-894x893.png"
                                  class="user-image" alt="User Image">
                             <span class="hidden-xs"><?php echo $user->username; ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="<?php echo base_url(); ?>resource/adminlte/dist/img/user2-160x160.jpg"
+                                <img src="<?php echo base_url(); ?>resource/adminlte/dist/img/user9-894x893.png"
                                      class="img-circle" alt="User Image">
 
                                 <p>
@@ -140,10 +141,6 @@
                                 </div>
                             </li>
                         </ul>
-                    </li>
-                    <!-- Control Sidebar Toggle Button -->
-                    <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                     </li>
                 </ul>
             </div>
@@ -168,50 +165,11 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-                <li>
-                    <a href="<?php echo site_url(''); ?>#/">
-                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                    </a>
-
-                </li>
-                <li>
-                    <a href="<?php echo '#/calendar'; ?>">
-                        <i class="fa fa-calendar"></i>
-                        <span>Calendar</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#/clear_cache">
-                        <i class="fa fa-cubes"></i>
-                        <span>Clear Clear</span>
-                    </a>
-                </li>
-
-                <li class="treeview">
-                    <a href="#/Socialization">
-                        <i class="fa fa-cubes"></i>
-                        <span>Socialization</span>
-                        <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="#/Socialization"><i class="fa fa-circle-o"></i> Moments</a></li>
-                        <li><a href="#/Socialization?m=myMoments"><i class="fa fa-circle-o"></i> My Moments</a></li>
-                        <li><a href="#/Socialization?m=myLikes"><i class="fa fa-circle-o"></i> My Likes</a></li>
-                        <li><a href="#/Socialization?m=myComments"><i class="fa fa-circle-o"></i> My Comments</a></li>
-                    </ul>
-                </li>
-
-                <li class="header">User Management</li>
-                <li><a href="<?php echo '#/users'; ?>"><i class="fa fa-user"></i> <span>Users</span></a></li>
+<!--                <li class="header">User Management</li>-->
+                <li><a href="<?php echo site_url(''); ?>#/"><i class="fa fa-user"></i> <span>Users</span></a></li>
                 <li><a href="<?php echo '#/roles'; ?>"><i class="fa fa-users"></i> <span>Roles</span></a></li>
-                <li><a href="<?php echo '#/permissions'; ?>"><i class="fa fa-users"></i> <span>Permissions</span></a>
-                </li>
-                <li><a href="<?php echo '#/login_log'; ?>"><i class="fa fa-history"></i> <span>Login Log</span></a></li>
-                <li><a href="<?php echo '#/operation_log'; ?>"><i class="fa fa-history"></i> <span>Operation Log</span></a>
-                </li>
-
+                <li><a href="<?php echo '#/permissions'; ?>"><i class="fa fa-users"></i> <span>Permissions</span></a></li>
+                <li><a href="#/clear_cache"><i class="fa fa-cubes"></i><span>Clear Cache</span></a></li>
             </ul>
         </section>
         <!-- /.sidebar -->

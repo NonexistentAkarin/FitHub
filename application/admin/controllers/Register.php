@@ -48,6 +48,11 @@ class Register extends CI_Controller
     function save()
     {
         $id = intval($this->input->post('id'));
+        $name = $this->input->post('username');
+        $email = $this->input->post('email');
+        if (!preg_match("/^[a-zA-Z ]*$/",$name)||!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$email)) {
+            json_response(array('success' => FALSE, 'msg' => validation_errors()));
+        }
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
         if ($this->form_validation->run() === FALSE) {
             json_response(array('success' => FALSE, 'msg' => validation_errors()));

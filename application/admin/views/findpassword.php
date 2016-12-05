@@ -25,7 +25,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="<?php echo site_url(''); ?>">CXPCMS</a>
+        <a href="<?php echo site_url(''); ?>">FitHub</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">

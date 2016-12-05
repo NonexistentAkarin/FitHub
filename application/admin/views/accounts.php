@@ -126,9 +126,7 @@
                     render: function (data, type, row) {
                         var html = '';
                         html += '<div class="btn-group">';
-                        html += '<a href="<?php echo '#/users?m=edit&id=';?>' + data + '" title="edit" class="btn btn-default btn-xs"><i class="fa fa-pencil icon-pencil"></i></a>';
-                        html += '<a href="<?php echo '#/users?m=edit_password&user_id=';?>' + data + '" title="change password" class="btn btn-default btn-xs"><i class="fa fa-lock icon-pencil"></i></a>';
-                        html += '<a href="<?php echo '#/users?m=edit_password&user_id=';?>' + data + '" title="change password" class="btn btn-default btn-xs"><i class="fa fa-lock icon-pencil"></i></a>';
+                        html += '<a href="<?php echo '#/profile?id=';?>' + data + '" title="edit" class="btn btn-default btn-xs"><i class="fa fa-pencil icon-pencil"></i></a>';
                         html += '</div>';
                         return html;
                     }
@@ -200,7 +198,7 @@
             followTime = 'Followed on ' + new Date(parseInt(follow.createdAt) * 1000).toUTCString();
             content.querySelector(".description").textContent = followTime;
             content.querySelector(".motto").textContent = follow.motto;
-            content.querySelector(".userherf").href = "admin.php?" + follow.followerId;
+            content.querySelector(".userherf").href = '#/profile?id=' + follow.followerId;
             userList.appendChild(itemTemplate.content.cloneNode(true));
         });
 
